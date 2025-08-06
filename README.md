@@ -18,6 +18,36 @@ public class StringListTest {
 ### Debug
 StringListTest.generateStringList(5);
 
+## Use sObjects (2/5)
 
+### 1. Describe the relationship between sObjects and Salesforce records.
+C) Every record in Salesforce is natively represented as an sObject in Apex.
 
+### 2. How do you create an sObject instance, such as an Account?
+A) Declare a variable and assign a new sObject instance to it.
+
+### 3. Which of the following is correct about a generic sObject variable?
+C) A generic sObject variable can be assigned to any specific standard or custom sObject, such as Account or Book__c, using casting.
+
+## Manipulate Records with DML
+
+### Apex
+public class AccountHandler {
+   public static Account insertNewAccount(String AccountName){
+        Account acct = new Account(Name=AccountName);
+        try{
+            insert acct;
+        }
+        catch(DMLException e){
+            return Null;
+        }
+        return acct;
+	}
+}
+
+### Debug 1
+AccountHandler.insertNewAccount('new test account');
+
+### Debug 2
+AccountHandler.insertNewAccount('');
 
