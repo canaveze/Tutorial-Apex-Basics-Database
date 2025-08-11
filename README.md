@@ -29,7 +29,7 @@ A) Declare a variable and assign a new sObject instance to it.
 ### 3. Which of the following is correct about a generic sObject variable?
 C) A generic sObject variable can be assigned to any specific standard or custom sObject, such as Account or Book__c, using casting.
 
-## Manipulate Records with DML
+## Manipulate Records with DML (3/5)
 
 ### Apex
 public class AccountHandler {
@@ -50,4 +50,20 @@ AccountHandler.insertNewAccount('new test account');
 
 ### Debug 2
 AccountHandler.insertNewAccount('');
+
+## Write SOSL Queries (4/5)
+
+### Apex
+
+public class ContactSearch {
+    public static List<Contact> searchForContacts(String lN,String mpc){
+        List<Contact> contactList=[Select Id,Name from Contact where
+                                  LastName=:lN and MailingPostalCode=:mpc];
+        return contactList;
+    }
+}
+
+
+
+
 
