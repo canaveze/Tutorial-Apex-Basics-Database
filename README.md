@@ -51,7 +51,7 @@ AccountHandler.insertNewAccount('new test account');
 ### Debug 2
 AccountHandler.insertNewAccount('');
 
-## Write SOSL Queries (4/5)
+## Write SOQL Queries (4/5)
 
 ### Apex
 
@@ -63,6 +63,20 @@ public class ContactSearch {
     }
 }
 
+## Write SOSL Queries (5/5)
+
+### Apex
+
+public class ContactAndLeadSearch {
+  
+    public static list<list< sObject >> searchContactsAndLeads(String lastName){
+     
+        list<list< sObject >> ContactLeadList = [ Find : lastName IN ALL FIELDS
+                                                 RETURNING contact(name),
+                                                 lead (Name) ];
+      return ContactLeadList;
+  }   
+}
 
 
 
